@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylegame.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin-top: 20px;">
+        <div class="container-fluid" style="background-color: black;">
+          <a class="navbar-brand" href="#" style="color: whitesmoke; font-size: x-large;">About Me</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+            </ul>
+            <form class="d-flex" role="search">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="main.html" style="color: whitesmoke; ">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="marvel.html" style="color: whitesmoke;">Avengers</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="footbal.html" style="color: whitesmoke;">Football</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="ml.html" style="color: whitesmoke;">Mobile legends</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="motor.html" style="color: whitesmoke;">Motorcycle</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="food.html" style="color: whitesmoke;">Foods</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="game.html" style="color: whitesmoke; text-decoration: underline;">Game</a>
+                    </li>
+                </ul>
+        
+            </form>
+          </div>
+        </div>
+      </nav>
+      <br>
+    
+    <h1>Space Trip</h1>
+    <h3>Score : <span id="score">0</span> </h3>
+    <div id="main" style="background-position-y: 0;">
+        <div id="area">
+            <div id="plane" style="margin-left: 160px;margin-top: 400px; "></div>
+            <div id="meteor" style="margin-top: 600px;"></div>
+        </div>
+
+    </div>
+    
+    <script type="text/javascript">
+
+        var isMoving = true;
+
+        function setBackgroundMoving(){
+                if(isMoving==true){
+                setTimeout(function(){
+                    //seting bg jalan
+                    var bg = document.getElementById('main');
+                    bg.style.backgroundPositionY = (parseInt(bg.style.backgroundPositionY.replace('px',''))+1) + 'px';
+
+                    //update score
+                    document.getElementById('score').innerHTML = parseInt(document.getElementById('score').innerHTML)+1;     
+
+                    //panggil fungsi recursive set bg moving
+                    setBackgroundMoving();
+                },5);
+            }
+        }
+        //inisialisasi bg
+        setBackgroundMoving();
+
+        //seting meteor
+        function setMeteorMoving(){
+            var meteor = document.getElementById('meteor'),
+                plane = document.getElementById('plane');   
+            
+            setTimeout(function(){
+                meteor.style.marginTop = (parseInt(meteor.style.marginTop.replace('px',''))+1)+'px';
+
+                if (parseInt(meteor.style.marginTop.replace('px','')) > 500) {
+                    meteor.style.marginLeft = (Math.floor(Math.random() * 250) + 50) + 'px';
+                    meteor.style.marginTop = "-100px";
+                }
+
+                if (meteor.offsetTop + 56 >= plane.offsetTop &&
+                    meteor.offsetLeft + 50 >= plane.offsetLeft &&
+                    meteor.offsetTop + 56 <= plane.offsetTop + 100 &&
+                    meteor.offsetLeft <= plane.offsetLeft + 50) {
+                    alert('Game Over, Score : ' + document.getElementById('score').innerHTML);
+                    isMoving=false;
+                    plane.setAttribute('class','freeze');
+                    meteor.setAttribute('class','freeze');
+                }
+                else{
+                    setMeteorMoving();
+                }
+
+            }, 1);
+        }
+        //inisialilasi meteor
+        setMeteorMoving();
+
+        window.addEventListener('keydown', function(e){
+            var plane = document.getElementById('plane'),
+                left = parseInt(plane.style.marginLeft.replace('px','')),
+                top  = parseInt(plane.style.marginTop.replace('px',''));
+
+            if(isMoving==true){   
+                if (e.keyCode == 37){
+                    if (left>0){
+                        plane.style.marginLeft = (left - 10) + 'px';
+                    }
+                }else if (e.keyCode==38){
+                    if (top>0){
+                        plane.style.marginTop = (top - 10) + 'px';
+                    }
+                }else if (e.keyCode == 39){
+                    if (left < 340){
+                        plane.style.marginLeft = (left + 10) + 'px';
+                    }
+                }else if (e.keyCode == 40){
+                    if (top < 400){
+                        plane.style.marginTop = (top + 10) + 'px';
+                    }
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>

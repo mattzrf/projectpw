@@ -1,0 +1,447 @@
+
+@charset "utf-8";
+/* CSS Document*/
+body{
+    background-color:#fff;
+    margin:0px;
+    padding:0px;
+}
+ 
+ul{
+    list-style:none;
+}
+ 
+a{
+    text-decoration:none;
+}
+ 
+section{
+    width:100%;
+    height:95vh;
+    position: relative;
+}
+ 
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    height:60px;
+    background-color:black;
+    box-shadow:2px 2px 12px rgba(0,0,0,0.2);
+    padding:0px 5%;
+     
+}
+nav ul{
+    display: flex;
+}
+  
+nav ul li a{
+    margin:30px;
+    font-family:myriad pro regular;
+    color:whitesmoke;
+    font-size: 15px;
+    font-weight:700;
+}
+ 
+.logo{
+    font-family:RoadTest;
+    color:whitesmoke;
+    font-size: 22px;
+    font-weight: bold;
+}
+ 
+.active{
+    color:gray;
+    font-weight:bold;
+}
+ 
+.text-container p:nth-child(1){
+    font-family: calibri;
+    font-weight: bold;
+    color: #6d6d6d;
+    font-size: 22px;
+}
+ 
+.text-container p:nth-child(2){
+    font-family: calibri;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    font-size: 60px;
+}
+ 
+.text-container p:nth-child(3){
+    font-family: myriad pro regular;
+    color: #403e3e;
+    font-size: 30px;
+    line-height: 30px;
+}
+ 
+.text-container p:nth-child(4){
+    font-family: calibri;
+    color: #403e3e;
+    font-size: 17px;
+    margin-top: 10px;
+    line-height: 30px;
+}
+ 
+.text-container p{
+    line-height: 0px;
+    margin: 55px 0px 25px;
+}
+ 
+.text-container{
+    position: absolute;
+    left: 13%;
+    top: 42%;
+    transform: translate(-13%, -42%);
+}
+ 
+.text-container button{
+    width: 130px;
+    height: 42px;
+    border-radius: 10px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 14px;
+    outline: none;
+    margin: 0px 10px;
+}
+ 
+ 
+.model{
+    height: 560px;
+    position: absolute;
+    bottom: 60px;
+    left: 80%;
+    transform: translateX(-70%);
+}
+
+ 
+footer p{
+    font-family: calibri;
+}
+ 
+footer p:nth-child(1){
+    font-size: 30px;
+    font-weight:bold;
+    color:#FFFFFF;
+    line-height:10px;
+}
+ 
+footer p:nth-child(2){
+    font-size: 16px;
+    color:#7e7d7d;
+    width:600px;
+    text-align: center;
+}
+ 
+footer{
+    height:300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #191919;
+}
+  
+.closing{
+    color:#565555;
+    font-size: 15px;
+    position: absolute;
+    left:50%;
+    bottom:10px;
+    transform: translateX(-50%);
+}
+
+
+
+
+
+
+.containerm{
+    width: 43%;
+    height: 500px;
+    display: flex;
+    gap: 5px;
+}
+
+.containerm img{
+    width: 20%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid white;
+    transition: all ease-out 0.7s;
+    cursor: pointer;
+}
+
+.containerm img:hover{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+.grid {
+    max-width: 1000px;
+    width: 100%;
+    height: 85%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    transition: grid-template-columns 0.5s ease;
+    
+}
+  
+.grid:has(.left:hover) {
+    grid-template-columns: 2fr 0.5fr 0.5fr;
+  }
+.grid:has(.center:hover) {
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+  }
+.grid:has(.right:hover) {
+    grid-template-columns: 0.5fr 0.5fr 2fr;
+  }
+  
+.imgf {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid green;
+  }
+  
+.grid > div {
+    cursor: pointer;
+}
+.descf{
+    color: white;
+    opacity: .8;
+    line-height: 1.5;
+    margin-bottom: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+.containerml {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.25rem;
+    transition: all 400ms;
+  }
+  
+.card {
+    flex: 1;
+    height: 100%;
+    transition: all 400ms;
+    cursor: pointer;
+  }
+.card > img {
+    display: block;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+.card:nth-child(odd) {
+    translate: 0 -20px;
+  }
+.card:nth-child(even) {
+    translate: 0 20px;
+  }
+  
+.container:hover .card:not(:hover) {
+    filter: grayscale(100%);
+  }
+.card:hover {
+    flex: 3;
+  }
+.descml {
+    color: white;
+    font-weight: 400;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    opacity: .6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    width: 325px;
+    height: 450px;
+    background: #000;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.poster {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.poster::before {
+    content: '';
+    position: absolute;
+    bottom: -45%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: .3s;
+}
+
+.card:hover .poster::before {
+    bottom: 0;
+}
+
+.poster img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .3s;
+}
+
+.card:hover .poster img {
+    transform: scale(1.1);
+}
+
+.details {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 1.5em 1.5em 2em;
+    background: #000a;
+    backdrop-filter: blur(16px) saturate(120%);
+    transition: .3s;
+    color: #fff;
+    z-index: 2;
+}
+
+.card:hover .details {
+    bottom: 0;
+}
+
+.details h1,
+.details h2 {
+    font-weight: 700;
+}
+
+.details h1 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.details h2 {
+    font-weight: 400;
+    font-size: 1em;
+    margin-bottom: 10px;
+    opacity: .6;
+}
+
+
+.details .desc {
+    color: #fff;
+    opacity: .8;
+    line-height: 1.5;
+    margin-bottom: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+.containerf{
+    width: 90%;
+    padding: 20px;
+    margin: 100px auto;	 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.boxf{
+    width: 250px;
+    margin: 0 10px;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
+    transition: 1s;
+
+}
+.boxf img{
+    display: block;
+    width:100%;
+    border-radius: 5px;
+}
+.boxf:hover{
+    transform: scale(1.3);
+    z-index: 2;
+}
+.descc {
+    color: white;
+    opacity: .8;
+    line-height: 1.5;
+    margin-bottom: 1em;
+}

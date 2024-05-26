@@ -1,0 +1,120 @@
+body{
+    text-align: center;
+}
+#main{
+    width: 400px;
+    height: 500px;
+    background: url("background.jpg");
+    margin: 0 auto;
+}
+#area{
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    overflow: hidden;
+    z-index: 100;
+}
+@keyframes planetJet{
+    from{
+        background: url("plane1.png");
+        background-size: 100%;
+    }
+    to{
+        background: url("plane2.png");
+        background-size: 100%;
+    }
+}
+#plane{
+    width: 58px;
+    height: 100px;
+    background: url("plane1.png");
+    background-size: 100%;
+    position: absolute;
+    margin-top: 400px;
+    animation: planetJet 0.3s infinite;
+}
+#plane.freeze{
+    width: 58px;
+    height: 100px;
+    background: url("plane1.png");
+    background-size: 100%;
+    position: absolute;
+    margin-top: 400px;
+    animation: none;
+}
+@keyframes meteorFire{
+    from{
+        background: url("meteor1.png");
+        background-size: 100%;
+    }
+    to{
+        background: url("meteor2.png");
+        background-size: 100%;
+    }
+}
+#meteor{
+    width: 58px;
+    height: 86px;
+    background: url("meteor1.png");
+    background-size: 100%;
+    animation: meteorFire 0.4s infinite;
+}
+#meteor.freeze{
+    width: 58px;
+    height: 86px;
+    background: url("meteor1.png");
+    background-size: 100%;
+    animation: none;
+
+}
+
+
+
+
+
+ul{
+    list-style:none;
+}
+ 
+a{
+    text-decoration:none;
+}
+ 
+section{
+    width:100%;
+    height:95vh;
+    position: relative;
+}
+ 
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    height:60px;
+    background-color:black;
+    box-shadow:2px 2px 12px rgba(0,0,0,0.2);
+    padding:0px 5%;
+     
+}
+nav ul{
+    display: flex;
+}
+  
+nav ul li a{
+    margin:30px;
+    font-family:myriad pro regular;
+    color:whitesmoke;
+    font-size: 15px;
+    font-weight:700;
+}
+.logo{
+    font-family:RoadTest;
+    color:whitesmoke;
+    font-size: 22px;
+    font-weight: bold;
+}
+ 
+.active{
+    color:gray;
+    font-weight:bold;
+}
